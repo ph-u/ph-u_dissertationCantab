@@ -6,5 +6,5 @@ USER root
 COPY env.yaml /tmp/env.yaml
 RUN micromamba install -y -n base -f /tmp/env.yaml && micromamba clean --all --yes
 RUN pip install seleniumbase
-RUN Rscript -e "BiocManager::install('xlsx2dfs')"
+RUN Rscript -e "BiocManager::install('xlsx2dfs');BiocManager::install('domainsignatures')"
 CMD ["R", "--version"]
